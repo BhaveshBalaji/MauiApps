@@ -1,0 +1,17 @@
+# .NET build artifacts
+bin/
+obj/
+
+# User-specific files
+.vs/
+*.user
+*.suo
+
+# Maui image cache
+Resources/**/*.original
+*.db
+*.sqlite
+
+# IDE settings
+.idea/
+*.DS_Store
