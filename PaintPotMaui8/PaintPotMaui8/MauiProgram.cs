@@ -10,7 +10,7 @@ namespace PaintPotMaui8
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseSkiaSharp()
+                .UseSkiaSharp() // Add UseSkiaSharp() here
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

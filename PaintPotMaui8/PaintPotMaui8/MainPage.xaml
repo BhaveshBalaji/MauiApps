@@ -6,10 +6,11 @@
 
     <Grid>
         <!-- Background image -->
-        <Image Source="kitty.png"
+        <!-- You can add your own image.png which should be imported to Resources/Images, and set Build Action to MauiImage-->
+        <Image Source="kitty.png"  
                Aspect="AspectFit"/>
 
-        <!-- Drawing canvas -->
+        <!-- Drawing canvas using SkiaSharp -->
         <skia:SKCanvasView x:Name="CanvasView"                          
                            PaintSurface="OnCanvasViewPaintSurface"
                            EnableTouchEvents="True"

@@ -6,6 +6,8 @@ using SkiaSharp.Views.Maui.Controls;
 namespace PaintPotMaui8;
 public partial class MainPage : ContentPage
 {
+    // State variables - list of dots that are drawn on the image, currentColor get the color selected - Default value is Red.
+
     List<(float x, float y, SKColor color)> dots = new();
     SKColor currentColor = SKColors.Red;
 
@@ -16,6 +18,7 @@ public partial class MainPage : ContentPage
 
     private void OnCanvasTouched(object sender, SKTouchEventArgs e)
     {
+        // Handle mouse click and drag event
         if (e.DeviceType == SKTouchDeviceType.Mouse)
         {
             // On Windows (Mouse), only draw on Pressed or when left button is held
@@ -41,6 +44,7 @@ public partial class MainPage : ContentPage
 
     private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs e)
     {
+        // We call this to draw on the canvas, defining the paint properties, and adding dot to the canvas on the image
         var canvas = e.Surface.Canvas;
         canvas.Clear();
 
@@ -59,6 +63,7 @@ public partial class MainPage : ContentPage
 
     private void OnColorClicked(object sender, EventArgs e)
     {
+        // Event handler to handle color button click (to change colors)
         if (sender is Button button)
         {
             var mauiColor = button.BackgroundColor;
@@ -71,12 +76,17 @@ public partial class MainPage : ContentPage
 
     private void OnClearClicked(object sender, EventArgs e)
     {
+        // Handler for clear button (clears the drawing from the canvas)
         dots.Clear();
         CanvasView.InvalidateSurface();
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
+        // Handler to save the image
+        // This handler involves File I/O, and Image processing which are time intensive tasks. Hence, it is important to declare
+        // this method as async-await method 
+
         var imageInfo = new SKImageInfo((int)CanvasView.CanvasSize.Width, (int)CanvasView.CanvasSize.Height);
         using var surface = SKSurface.Create(imageInfo);
         var canvas = surface.Canvas;
