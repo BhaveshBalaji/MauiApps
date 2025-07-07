@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
+             x:Class="MoleMash8.MainPage">
+
+    <Grid RowDefinitions="*, Auto">
+        <!-- Canvas background -->
+        <skia:SKCanvasView x:Name="GameCanvas"
+                           PaintSurface="OnCanvasPaintSurface"
+                           EnableTouchEvents="True"
+                           Touch="OnCanvasTouched" />
+        <!-- label for timer, reset button -->
+        <StackLayout Grid.Row="1"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Spacing="20"
+                     Padding="10">
+            <Label x:Name="ScoreLabel" Text="Score: 0" FontSize="20" />
+            <Label x:Name="HighScoreLabel" Text="High Score: 0" FontSize="20" />
+            <Label x:Name="TimeLabel" Text="Time: 30" FontSize="20" />
+            <Button Text="Reset" Clicked="OnResetClicked" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
