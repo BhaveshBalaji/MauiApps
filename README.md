@@ -1,4 +1,4 @@
-#Maui Apps#
+#Maui Apps
 
 Implemented gaming applications for mobile using .NET MAUI (Multi-Platform App UI) that supports cross platform development.
 
